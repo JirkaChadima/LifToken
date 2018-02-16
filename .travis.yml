@@ -3,15 +3,25 @@ sudo: required
 group: beta
 language: node_js
 node_js:
-  - "7"
+- '7'
 cache:
   yarn: true
 env:
-  -
-  - SOLIDITY_COVERAGE=true
+- 
+- SOLIDITY_COVERAGE=true
 matrix:
   fast_finish: true
   allow_failures:
-    - env: SOLIDITY_COVERAGE=true
+  - env: SOLIDITY_COVERAGE=true
 script:
-  - ./scripts/ci.sh
+- "./scripts/ci.sh"
+before_deploy: "npm run buildfornpm"
+deploy:
+  provider: npm
+  email: chadima.jiri@gmail.com
+  tags: true
+  skip_cleanup: true
+  on:
+    branch: releases
+  api_key:
+    secure: L9ZODUZCGlP0Fd6Dv8EBXOMiId+H71239hYZAeH4+9oRHYMU+G1sLWPC3CEY3GBoa2PwGRxZdOq3AJ8A/TBmF8B9RHTMnUP9JnguSncj+UROuU7j+01RJZx7h+v3ywgsccIcghNseTTLtLHtGgMyIfoFoDvNhvMTZ/6OET5cbU7eOyKRc0q9pDG3bfOoQM20w3ivU5qxvrmYW+ziFqQH0+YecPGdf6DUBLmiTyyvj1UX6JU7olLTotIm5/qCWj6G5tTkuoCl5DeD/Bt39fje0kAlHGcRayWIy3tEklIiReji/dptbfGUpzgq1Bqq0WoMFwvieJXiK7mMp0uNSSs15mjwGdA3/pqbS1qvl7NvtQrfwZ9Got6ahIy1jgEvHy4qNHJZR27SuswCaTemnlA2cJ7ieB7R1SejPjU/fUzX3Wjo+URRYJNJx27dYvMX502x4GiKG6dJuKGqZLEUH2zoW1cERDuJPezal+Zp2jslFgaq8U+bB9riCXI1620rnzpLIIu1KmmxsNESwRwl3+R5X9T8KTaKwUEGZib7iICuwYmcQj9hysQbM9uOhN3SDBb64hECBXQjqmMsUdgvRKwyBSryAPBb8RM2Y5r5FHrDkI1akevnss4l6JFQtsMvk+/tWXRFq9kwtQBGQuIUtgi8k5JN61IJbiLRbkL6IwMCw1w=
