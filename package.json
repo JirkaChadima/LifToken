@@ -1,6 +1,6 @@
 {
   "name": "lif-token-test",
-  "version": "1.0.0",
+  "version": "1.0.0-prealpha+1",
   "description": "Winding Tree Platform Token",
   "main": "index.js",
   "scripts": {
